@@ -1,9 +1,22 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+function PlantList({plants, searchTerm, filteredPlants }) {
+
+  // const filteredPlants = plants.filter((plant) => plant.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
+  // const filteredPlants = plants.filter((plant) => {
+    // const lowerCaseName = plant.name.toLowerCase();
+    // const lowerCaseSearch = searchTerm.toLowerCase();
+    // const numPriceSearch = parseInt(searchTerm);
+    // const isPrice = plant.price <= numPriceSearch;
+    // return lowerCaseName.includes(lowerCaseSearch) || isPrice;
+  // })
+
+  const plantCards = filteredPlants.map((plant) => (<PlantCard key={plant.id} plant={plant}/>))
+
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <ul className="cards">{plantCards}</ul>
   );
 }
 
